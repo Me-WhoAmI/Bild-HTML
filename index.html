@@ -5,150 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bioingenieurwesen</title>
     <style>
-        /* ---------- RESET ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f7fa; /* neutraler Hintergrund für die Folgeseiten */
-        }
-
-        /* ---------- NAVIGATION (fixiert) ---------- */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 0.8rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #13323f;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.4rem 0;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        nav a:hover {
-            border-bottom-color: #2a7a9c;
-            color: #1f6a8a;
-        }
-
-        /* ---------- STARTSEITE (exakt wie bisher) ---------- */
-        #start {
             min-height: 100vh;
+            /* Dein Bild als Vollbild-Hintergrund */
             background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            /* Kein Inhalt – nur das Bild */
-        }
-
-        /* ---------- LEERE SEITEN (Abschnitte) ---------- */
-        .page {
-            min-height: 100vh;          /* jede Seite nimmt einen vollen Viewport ein */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 6rem 2rem 4rem;    /* Platz für die fixierte Nav */
-            background: #ffffff;
-            border-top: 1px solid rgba(0,40,60,0.05);
-        }
-
-        .page:nth-child(even) {
-            background: #f8faff;        /* abwechselnde Farben für bessere Erkennbarkeit */
-        }
-
-        .page h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #13323f;
-            letter-spacing: -0.5px;
-        }
-
-        .page p {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            color: #7a9aaa;
-        }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 600px) {
-            nav {
-                gap: 1rem;
-                padding: 0.5rem 1rem;
-            }
-            nav a {
-                font-size: 0.8rem;
-            }
-            .page h2 {
-                font-size: 2.2rem;
-            }
+            /* Kein weiterer Inhalt – das Bild spricht für sich */
         }
     </style>
 </head>
 <body>
-
-    <!-- ========== NAVIGATION ========== -->
-    <nav>
-        <a href="#start">Start</a>
-        <a href="#ueber-mich">Über mich</a>
-        <a href="#kompetenzen">Kompetenzen</a>
-        <a href="#projekte">Projekte</a>
-        <a href="#werdegang">Werdegang</a>
-        <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <!-- ========== STARTSEITE (unverändert) ========== -->
-    <section id="start"></section>
-
-    <!-- ========== LEERE SEITEN ========== -->
-    <section id="ueber-mich" class="page">
-        <h2>Über mich</h2>
-        <p>Hier kommt später Ihr Text.</p>
-    </section>
-
-    <section id="kompetenzen" class="page">
-        <h2>Kompetenzen</h2>
-        <p>Hier kommt später Ihr Text.</p>
-    </section>
-
-    <section id="projekte" class="page">
-        <h2>Projekte</h2>
-        <p>Hier kommt später Ihr Text.</p>
-    </section>
-
-    <section id="werdegang" class="page">
-        <h2>Werdegang</h2>
-        <p>Hier kommt später Ihr Text.</p>
-    </section>
-
-    <section id="kontakt" class="page">
-        <h2>Kontakt</h2>
-        <p>Hier kommt später Ihr Text.</p>
-    </section>
-
+    <!-- Absolut leer – das Bild füllt alles -->
 </body>
 </html>
 

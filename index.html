@@ -27,7 +27,7 @@
             background-repeat: no-repeat;
         }
 
-        /* ---------- OVERLAY FÜR "ÜBER MICH" ---------- */
+        /* ---------- OVERLAY FÜR "ÜBER MICH" (Link) ---------- */
         .menu-overlay {
             position: absolute;
             top: 6%;
@@ -58,12 +58,36 @@
             color: #1f6a8a;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (KORRIGIERT) ---------- */
+        /* ---------- NEU: OVERLAY FÜR DEN NAMEN "Katarina Opara" ---------- */
+        .name-overlay {
+            position: absolute;
+            /* Hier kannst du die Position beliebig anpassen: */
+            top: 20%;
+            left: 20%;
+            /* Bei Bedarf kannst du auch transform: translate() verwenden,
+               aber dann musst du es hier entsprechend setzen.
+               Für einfache Positionierung reichen top und left. */
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #13323f;
+            white-space: nowrap;
+            z-index: 10;
+            /* Damit es über dem Bild liegt */;
+        }
+
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;   /* ← geändert: Inhalt von oben starten */
+            justify-content: flex-start;
             align-items: center;
             padding: 2rem;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,15 +127,13 @@
             position: relative;
             z-index: 1;
             max-width: 800px;
-            padding-top: 15vh;   /* ← Abstand von oben – jetzt wirksam */
+            padding-top: 15vh;
         }
 
-        /* ---------- ÜBERSCHRIFT MIT FARBVERLAUF ---------- */
         #ueber-mich h2 {
             font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            /* Farbverlauf von Weiß nach Türkis */
             background: linear-gradient(135deg, #ffffff 0%, #40e0d0 80%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -130,9 +152,13 @@
 <body>
 
     <section id="start">
+        <!-- Overlay für "Über mich" (Link) -->
         <div class="menu-overlay">
             <a href="#ueber-mich">Über mich</a>
         </div>
+
+        <!-- NEU: Overlay für den Namen "Katarina Opara" -->
+        <div class="name-overlay">Katarina Opara</div>
     </section>
 
     <section id="ueber-mich">
@@ -144,6 +170,7 @@
 
 </body>
 </html>
+
 
 
 

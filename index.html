@@ -58,7 +58,7 @@
             color: #1f6a8a;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (NEU) ---------- */
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -68,13 +68,11 @@
             padding: 2rem;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            /* Neuer Hintergrund mit Farbverlauf */
             background: linear-gradient(120deg, #f9f5f0 0%, #f2eae3 100%);
             position: relative;
             overflow: hidden;
         }
 
-        /* Große, unscharfe Kreise als Dekoration */
         #ueber-mich::before {
             content: "";
             position: absolute;
@@ -101,18 +99,26 @@
             z-index: 0;
         }
 
-        /* Inhalt der Sektion wird über den Kreisen angezeigt */
         #ueber-mich .content {
             position: relative;
             z-index: 1;
             max-width: 800px;
+            /* zusätzlicher Abstand nach oben, damit die Überschrift höher steht */
+            margin-top: -10vh; /* verschiebt den gesamten Inhalt nach oben */
         }
 
+        /* ---------- NEUE ÜBERSCHRIFT ---------- */
         #ueber-mich h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #13323f;
+            font-size: 3.5rem;          /* größer als zuvor (war 3rem) */
+            font-weight: 800;           /* viel dicker (vorher 300) */
             margin-bottom: 1rem;
+            /* Farbverlauf von Weiß nach Türkis */
+            background: linear-gradient(135deg, #ffffff 0%, #40e0d0 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            /* Optional: Text-Schatten für bessere Lesbarkeit */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         #ueber-mich p {

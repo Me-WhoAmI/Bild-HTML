@@ -13,12 +13,23 @@
 
         body {
             min-height: 100vh;
-            /* Dein Bild als Vollbild-Hintergrund */
             background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            /* Kein weiterer Inhalt – das Bild spricht für sich */
+            background-repeat: no-repeat;
+            /* 'fixed' wurde entfernt – das macht auf mobilen Geräten oft Probleme */
+        }
+
+        /* Anpassung für Smartphones (kleine Bildschirme) */
+        @media (max-width: 600px) {
+            body {
+                /* Du kannst hier zwischen 'cover' (füllt den Bildschirm, 
+                   kann aber oben/unten abschneiden) und 'contain' (zeigt das gesamte Bild, 
+                   aber mit Rändern) wählen */
+                background-size: cover;
+                /* Oder: background-size: contain; */
+                background-position: top center; /* fokussiert den oberen Bildbereich */
+            }
         }
     </style>
 </head>
@@ -26,5 +37,7 @@
     <!-- Absolut leer – das Bild füllt alles -->
 </body>
 </html>
+
+
 
 

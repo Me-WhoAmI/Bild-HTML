@@ -16,7 +16,7 @@
             height: 100%;
         }
 
-        /* ---------- STARTSEITE (Vollbild-Hintergrund) ---------- */
+        /* ---------- STARTSEITE ---------- */
         #start {
             position: relative;
             width: 100vw;
@@ -27,22 +27,21 @@
             background-repeat: no-repeat;
         }
 
-        /* ---------- OVERLAY-MENÜ (oben rechts) ---------- */
+        /* ---------- OVERLAY FÜR "ÜBER MICH" ---------- */
         .menu-overlay {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            /* Passe hier die Position an: */
+            top: 45%;      /* Abstand vom oberen Rand */
+            left: 50%;     /* Abstand vom linken Rand */
+            transform: translate(-50%, -50%); /* zentriert das Overlay */
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.8rem;
             border-radius: 40px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
         }
 
         .menu-overlay a {
@@ -60,7 +59,7 @@
             color: #1f6a8a;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (Beispiel-Inhalt) ---------- */
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -86,23 +85,17 @@
             max-width: 600px;
             line-height: 1.6;
         }
-
-        /* ---------- WEITERE MENÜPUNKTE (Platzhalter) ---------- */
-        /* Du kannst sie einfach im HTML ergänzen */
     </style>
 </head>
 <body>
 
-    <!-- ========== STARTSEITE ========== -->
     <section id="start">
-        <!-- Overlay-Menü -->
+        <!-- Overlay – positioniere es mit top / left -->
         <div class="menu-overlay">
             <a href="#ueber-mich">Über mich</a>
-            <!-- Weitere Links können hier ergänzt werden -->
         </div>
     </section>
 
-    <!-- ========== SEITE "ÜBER MICH" ========== -->
     <section id="ueber-mich">
         <h2>Über mich</h2>
         <p>Hier kommt später Ihr Text.</p>
@@ -110,6 +103,7 @@
 
 </body>
 </html>
+
 
 
 

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen – Startseite</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Bioingenieurwesen</title>
     <style>
         * {
             margin: 0;
@@ -13,193 +12,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             /* Dein Bild als Vollbild-Hintergrund */
             background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
-        }
-
-        /* Die gläserne Karte – nur für Buttons & Kompetenzen */
-        .glass-card {
-            max-width: 950px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.70);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 2.8rem;
-            padding: 2.8rem 3.2rem;
-            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.2s ease;
-        }
-
-        /* Da der Text bereits im Bild ist, verzichten wir auf <h1>, <p> etc. */
-        /* Nur die Buttons und Kompetenz-Cards werden angezeigt */
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: #13323f;
-            color: #fff;
-            padding: 0.7rem 2rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: background 0.2s, transform 0.15s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn i {
-            font-size: 0.9rem;
-        }
-        .btn-outline {
-            background: transparent;
-            color: #13323f;
-            border: 2px solid #13323f;
-        }
-        .btn:hover {
-            background: #1f5570;
-            transform: translateY(-3px);
-        }
-        .btn-outline:hover {
-            background: #13323f;
-            color: #fff;
-        }
-
-        /* Kompetenzen Grid – 5 Karten */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.2rem;
-            margin-top: 0.8rem;
-        }
-
-        .skill-item {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(2px);
-            padding: 1.2rem 0.8rem;
-            border-radius: 1.5rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: box-shadow 0.25s, transform 0.2s;
-        }
-        .skill-item:hover {
-            box-shadow: 0 8px 20px rgba(20, 60, 90, 0.10);
-            transform: translateY(-4px);
-        }
-        .skill-item i {
-            font-size: 2.2rem;
-            color: #1f6a8a;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .skill-item strong {
-            display: block;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #13323f;
-            margin-bottom: 0.25rem;
-        }
-        .skill-item span {
-            font-size: 0.85rem;
-            color: #1f5570;
-            line-height: 1.4;
-        }
-
-        /* Abstandhalter, damit die Karte optisch gut sitzt */
-        .spacer {
-            height: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-            .glass-card {
-                padding: 1.8rem 1.5rem;
-                border-radius: 2rem;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .skills {
-                grid-template-columns: 1fr 1fr;
-            }
-            .actions {
-                flex-direction: column;
-                width: 100%;
-            }
-            .btn {
-                justify-content: center;
-                width: 100%;
-            }
-            .glass-card {
-                padding: 1.2rem 1rem;
-            }
+            /* Kein weiterer Inhalt – das Bild spricht für sich */
         }
     </style>
 </head>
 <body>
-
-    <div class="glass-card">
-
-        <!-- KEIN Text – der steht bereits im Bild! -->
-        <!-- Nur Buttons & Kompetenzen als Overlay -->
-
-        <div class="actions">
-            <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
-            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Lebenslauf herunterladen</a>
-        </div>
-
-        <!-- Leerraum, damit die Kompetenzen optisch tiefer sitzen -->
-        <div class="spacer"></div>
-
-        <!-- Kompetenzfelder (5 Karten) -->
-        <div class="skills">
-            <div class="skill-item">
-                <i class="fas fa-flask"></i>
-                <strong>Biotechnologie</strong>
-                <span>Verständnis biologischer Systeme</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-microscope"></i>
-                <strong>Prozessentwicklung</strong>
-                <span>Design &amp; Optimierung</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-chart-bar"></i>
-                <strong>Datenanalyse</strong>
-                <span>Modellierung &amp; Auswertung</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-vial"></i>
-                <strong>Forschung</strong>
-                <span>Experimentelle Methoden</span>
-            </div>
-            <div class="skill-item">
-                <i class="fas fa-leaf"></i>
-                <strong>Nachhaltigkeit</strong>
-                <span>Technologien für die Zukunft</span>
-            </div>
-        </div>
-
-    </div>
-
+    <!-- Absolut leer – das Bild füllt alles -->
 </body>
 </html>
 

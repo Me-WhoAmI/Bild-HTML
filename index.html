@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen</title>
+    <title>Bioingenieurwesen – Startseite</title>
     <style>
         * {
             margin: 0;
@@ -11,21 +11,106 @@
             box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-            /* Dein Bild als Vollbild-Hintergrund */
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ---------- STARTSEITE (Vollbild-Hintergrund) ---------- */
+        #start {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
             background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            /* Kein weiterer Inhalt – das Bild spricht für sich */
+            background-repeat: no-repeat;
         }
+
+        /* ---------- OVERLAY-MENÜ (oben rechts) ---------- */
+        .menu-overlay {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .menu-overlay a {
+            text-decoration: none;
+            color: #13323f;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .menu-overlay a:hover {
+            border-bottom-color: #2a7a9c;
+            color: #1f6a8a;
+        }
+
+        /* ---------- SEITE "ÜBER MICH" (Beispiel-Inhalt) ---------- */
+        #ueber-mich {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: #f8faff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        #ueber-mich h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #13323f;
+            margin-bottom: 1rem;
+        }
+
+        #ueber-mich p {
+            font-size: 1.2rem;
+            color: #4a6a80;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ---------- WEITERE MENÜPUNKTE (Platzhalter) ---------- */
+        /* Du kannst sie einfach im HTML ergänzen */
     </style>
 </head>
 <body>
-    <!-- Absolut leer – das Bild füllt alles -->
+
+    <!-- ========== STARTSEITE ========== -->
+    <section id="start">
+        <!-- Overlay-Menü -->
+        <div class="menu-overlay">
+            <a href="#ueber-mich">Über mich</a>
+            <!-- Weitere Links können hier ergänzt werden -->
+        </div>
+    </section>
+
+    <!-- ========== SEITE "ÜBER MICH" ========== -->
+    <section id="ueber-mich">
+        <h2>Über mich</h2>
+        <p>Hier kommt später Ihr Text.</p>
+    </section>
+
 </body>
 </html>
+
 
 
 

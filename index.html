@@ -58,12 +58,12 @@
             color: #1f6a8a;
         }
 
-        /* ---------- SEITE "ÜBER MICH" ---------- */
+        /* ---------- SEITE "ÜBER MICH" (KORRIGIERT) ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;   /* ← geändert: Inhalt von oben starten */
             align-items: center;
             padding: 2rem;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,23 +103,19 @@
             position: relative;
             z-index: 1;
             max-width: 800px;
-            /* zusätzlicher Abstand nach oben, damit die Überschrift höher steht */
-            #ueber-mich .content {
-    padding-top: 15vh;   /* beliebiger Wert – je größer, desto weiter unten */
+            padding-top: 15vh;   /* ← Abstand von oben – jetzt wirksam */
         }
 
-        /* ---------- NEUE ÜBERSCHRIFT ---------- */
+        /* ---------- ÜBERSCHRIFT MIT FARBVERLAUF ---------- */
         #ueber-mich h2 {
-            font-size: 3.5rem;          /* größer als zuvor (war 3rem) */
-            font-weight: 800;           /* viel dicker (vorher 300) */
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             /* Farbverlauf von Weiß nach Türkis */
             background: linear-gradient(135deg, #ffffff 0%, #40e0d0 80%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            /* Optional: Text-Schatten für bessere Lesbarkeit */
-            text-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         #ueber-mich p {
@@ -148,6 +144,8 @@
 
 </body>
 </html>
+
+
 
 
 

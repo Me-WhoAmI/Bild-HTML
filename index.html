@@ -11,32 +11,35 @@
             box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            /* 'fixed' wurde entfernt – das macht auf mobilen Geräten oft Probleme */
+        html, body {
+            height: 100%;
+            background: #f2f7fc; /* Hintergrundfarbe für die Ränder */
         }
 
-        /* Anpassung für Smartphones (kleine Bildschirme) */
-        @media (max-width: 600px) {
-            body {
-                /* Du kannst hier zwischen 'cover' (füllt den Bildschirm, 
-                   kann aber oben/unten abschneiden) und 'contain' (zeigt das gesamte Bild, 
-                   aber mit Rändern) wählen */
-                background-size: cover;
-                /* Oder: background-size: contain; */
-                background-position: top center; /* fokussiert den oberen Bildbereich */
-            }
+        .fullscreen-image {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Bild wird komplett angezeigt, ggf. mit Rändern */
         }
     </style>
 </head>
 <body>
-    <!-- Absolut leer – das Bild füllt alles -->
+    <div class="fullscreen-image">
+        <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Bioingenieurwesen" />
+    </div>
 </body>
 </html>
+
 
 
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen – Portfolio</title>
+    <title>Bioingenieurwesen</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         /* ---------- RESET & BASIS ---------- */
@@ -30,8 +30,8 @@
             left: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 0.8rem 2rem;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
             z-index: 1000;
@@ -59,8 +59,18 @@
             color: #1f6a8a;
         }
 
-        /* ---------- ABSCHNITTE ---------- */
-        section {
+        /* ---------- STARTSEITE (exakt wie bisher) ---------- */
+        #start {
+            min-height: 100vh;
+            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Kein weiterer Inhalt – das Bild spricht für sich */
+        }
+
+        /* ---------- WEITERE ABSCHNITTE (ohne Glas) ---------- */
+        section:not(#start) {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -70,18 +80,6 @@
             /* Platz für fixierte Nav */;
         }
 
-        /* ----- STARTSEITE (nur das Bild) ----- */
-        #start {
-            min-height: 100vh;
-            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 0;
-            /* kein zusätzlicher Inhalt */;
-        }
-
-        /* ----- ALLE WEITEREN SEKTIONEN (mit Inhalt) ----- */
         .content-section {
             background: #ffffff;
             border-top: 1px solid rgba(0, 40, 60, 0.06);
@@ -116,6 +114,7 @@
             margin-bottom: 2rem;
             max-width: 700px;
             line-height: 1.6;
+            text-align: center;
         }
 
         /* ----- ÜBER MICH ----- */
@@ -199,12 +198,13 @@
             line-height: 1.5;
         }
 
-        /* ----- KOMPETENZEN (als Fortschrittsbalken) ----- */
+        /* ----- KOMPETENZEN (Balken) ----- */
         .skill-bars {
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
             margin-top: 0.5rem;
+            width: 100%;
         }
 
         .skill-bar {
@@ -233,7 +233,7 @@
             border-radius: 10px;
             background: linear-gradient(90deg, #2a7a9c, #5fa3c0);
             width: 0%;
-            transition: width 1s ease;
+            /* Werte werden über style gesetzt */;
         }
 
         /* ----- WERDEGANG (Zeitleiste) ----- */
@@ -415,7 +415,7 @@
         <a href="#contact">Kontakt</a>
     </nav>
 
-    <!-- ========== STARTSEITE (nur Bild) ========== -->
+    <!-- ========== STARTSEITE (exakt wie bisher) ========== -->
     <section id="start"></section>
 
     <!-- ========== ÜBER MICH ========== -->

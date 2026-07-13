@@ -15,100 +15,42 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            /* Hier wird dein Bild als Vollbild-Hintergrund eingebunden */
-            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.webp');
+            /* Dein Bild als Vollbild-Hintergrund */
+            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* sorgt für Parallax-Effekt bei mehreren Seiten */
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem 1rem;
         }
 
-        /* Die Glas-Karte für den Content */
+        /* Die gläserne Karte – nur für Buttons & Kompetenzen */
         .glass-card {
             max-width: 950px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            background: rgba(255, 255, 255, 0.70);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-radius: 2.8rem;
             padding: 2.8rem 3.2rem;
-            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all 0.2s ease;
         }
 
-        /* Kopfbereich */
-        .header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: 2px solid rgba(0, 40, 60, 0.08);
-            padding-bottom: 1.2rem;
-            margin-bottom: 1.8rem;
-        }
-
-        .title-group h1 {
-            font-size: 2.6rem;
-            font-weight: 600;
-            color: #13323f;
-            letter-spacing: -0.5px;
-        }
-        .title-group .sub {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #1f5570;
-            margin-top: 0.15rem;
-            letter-spacing: 0.4px;
-        }
-
-        .badge {
-            background: #13323f;
-            color: #fff;
-            padding: 0.5rem 1.4rem;
-            border-radius: 40px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        /* Intro */
-        .intro {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 1.6rem 2rem;
-            border-radius: 1.8rem;
-            border-left: 6px solid #2a7a9c;
-            margin-bottom: 1.8rem;
-        }
-        .intro h2 {
-            font-size: 1.9rem;
-            font-weight: 500;
-            color: #13323f;
-            margin-bottom: 0.4rem;
-        }
-        .intro h2 em {
-            font-style: normal;
-            color: #1f6a8a;
-            font-weight: 600;
-        }
-        .intro p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #1f4a60;
-            max-width: 80%;
-        }
+        /* Da der Text bereits im Bild ist, verzichten wir auf <h1>, <p> etc. */
+        /* Nur die Buttons und Kompetenz-Cards werden angezeigt */
 
         .actions {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
         }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -141,15 +83,17 @@
             color: #fff;
         }
 
-        /* Kompetenzen Grid */
+        /* Kompetenzen Grid – 5 Karten */
         .skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1.2rem;
             margin-top: 0.8rem;
         }
+
         .skill-item {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(2px);
             padding: 1.2rem 0.8rem;
             border-radius: 1.5rem;
             text-align: center;
@@ -157,7 +101,7 @@
             transition: box-shadow 0.25s, transform 0.2s;
         }
         .skill-item:hover {
-            box-shadow: 0 8px 20px rgba(20, 60, 90, 0.08);
+            box-shadow: 0 8px 20px rgba(20, 60, 90, 0.10);
             transform: translateY(-4px);
         }
         .skill-item i {
@@ -179,22 +123,16 @@
             line-height: 1.4;
         }
 
+        /* Abstandhalter, damit die Karte optisch gut sitzt */
+        .spacer {
+            height: 2rem;
+        }
+
         /* Responsive */
         @media (max-width: 800px) {
             .glass-card {
                 padding: 1.8rem 1.5rem;
                 border-radius: 2rem;
-            }
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-            }
-            .title-group h1 {
-                font-size: 2.2rem;
-            }
-            .intro p {
-                max-width: 100%;
             }
         }
 
@@ -213,12 +151,6 @@
             .glass-card {
                 padding: 1.2rem 1rem;
             }
-            .intro {
-                padding: 1rem;
-            }
-            .intro h2 {
-                font-size: 1.4rem;
-            }
         }
     </style>
 </head>
@@ -226,57 +158,43 @@
 
     <div class="glass-card">
 
-        <!-- Kopf -->
-        <div class="header">
-            <div class="title-group">
-                <h1>Bioingenieurwesen</h1>
-                <div class="sub">verstehen. Technologien entwickeln. Zukunft gestalten.</div>
-            </div>
-            <div class="badge">
-                <i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i> MASTER OF SCIENCE
-            </div>
+        <!-- KEIN Text – der steht bereits im Bild! -->
+        <!-- Nur Buttons & Kompetenzen als Overlay -->
+
+        <div class="actions">
+            <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
+            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Lebenslauf herunterladen</a>
         </div>
 
-        <!-- Intro & Handlungen -->
-        <div class="intro">
-            <h2><em>Bioingenieurwesen</em> – Schnittstelle von Biologie und Ingenieurwissenschaften</h2>
-            <p>
-                Der Masterstudiengang verbindet biologische Forschung mit ingenieurwissenschaftlicher
-                Prozessentwicklung und moderner Datenanalyse. Im Fokus stehen biotechnologische Prozesse,
-                nachhaltige Technologien und interdisziplinäre Lösungen für die Zukunft.
-            </p>
-            <div class="actions">
-                <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Studieninfo herunterladen</a>
-            </div>
-        </div>
+        <!-- Leerraum, damit die Kompetenzen optisch tiefer sitzen -->
+        <div class="spacer"></div>
 
-        <!-- Kompetenzfelder -->
+        <!-- Kompetenzfelder (5 Karten) -->
         <div class="skills">
             <div class="skill-item">
                 <i class="fas fa-flask"></i>
                 <strong>Biotechnologie</strong>
-                <span>Verständnis biologischer Systeme und Prozesse</span>
+                <span>Verständnis biologischer Systeme</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-microscope"></i>
                 <strong>Prozessentwicklung</strong>
-                <span>Design &amp; Optimierung biotechnologischer Prozesse</span>
+                <span>Design &amp; Optimierung</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-chart-bar"></i>
                 <strong>Datenanalyse</strong>
-                <span>Datentriebene Analysen &amp; Modellierung</span>
+                <span>Modellierung &amp; Auswertung</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-vial"></i>
                 <strong>Forschung</strong>
-                <span>Experimentelle Methoden &amp; wissenschaftliche Arbeit</span>
+                <span>Experimentelle Methoden</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-leaf"></i>
                 <strong>Nachhaltigkeit</strong>
-                <span>Technologien für eine nachhaltige Zukunft</span>
+                <span>Technologien für die Zukunft</span>
             </div>
         </div>
 
@@ -284,3 +202,4 @@
 
 </body>
 </html>
+

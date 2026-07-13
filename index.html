@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bild-Test mit Media Queries</title>
+    <title>Startseite – perfekt für jedes Smartphone</title>
     <style>
         * {
             margin: 0;
@@ -18,11 +18,7 @@
             background: #f2f7fc;
         }
 
-        /* ----- Standard-Container (Desktop) ----- */
         .fullscreen-image {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100vw;
             height: 100vh;
             display: flex;
@@ -30,50 +26,45 @@
             align-items: center;
         }
 
+        .fullscreen-image picture,
         .fullscreen-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center;
             display: block;
         }
 
-        /* ----- Media Query für Smartphones (hochkant) ----- */
-        @media (max-width: 480px) and (orientation: portrait) {
-            .fullscreen-image img {
-                object-fit: cover;
-                object-position: top center;  /* wichtiger Teil oben sichtbar */
-            }
-        }
-
-        /* ----- Media Query für Smartphones (quer) ----- */
-        @media (max-width: 800px) and (orientation: landscape) {
-            .fullscreen-image img {
-                object-fit: cover;
-                object-position: center center; /* zentriert bei Querformat */
-            }
-        }
-
-        /* ----- Media Query für sehr breite Geräte (Tablets) ----- */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .fullscreen-image img {
-                object-fit: cover;
-                object-position: center;
-            }
-        }
-
-        /* ----- Falls das Bild nicht lädt, zeigen wir eine Hintergrundfarbe ----- */
         .fullscreen-image img {
-            background: #e0eaf2;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 </head>
 <body>
     <div class="fullscreen-image">
-        <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Testbild" />
+        <picture>
+            <!-- Für sehr schmale Smartphones (hochkant, z. B. 19:5:9) -->
+            <source 
+                media="(max-width: 480px) and (orientation: portrait)" 
+                srcset="bild-portrait.jpg" 
+            />
+            <!-- Für breitere Smartphones (quer, z. B. 16:9) -->
+            <source 
+                media="(max-width: 900px) and (orientation: landscape)" 
+                srcset="bild-landscape.jpg" 
+            />
+            <!-- Für Tablets und Desktops (Standard) -->
+            <source 
+                media="(min-width: 901px)" 
+                srcset="bild-desktop.jpg" 
+            />
+            <!-- Fallback für alle anderen Geräte -->
+            <img src="bild-default.jpg" alt="Bioingenieurwesen" />
+        </picture>
     </div>
 </body>
 </html>
+
+
 
 
 

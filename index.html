@@ -59,27 +59,25 @@
         }
 
         /* ---------- NEU: OVERLAY FÜR DEN NAMEN "Katarina Opara" ---------- */
+     
+
         .name-overlay {
             position: absolute;
-            /* Hier kannst du die Position beliebig anpassen: */
-            top: 4%;
-            left: 5%;
-            /* Bei Bedarf kannst du auch transform: translate() verwenden,
-               aber dann musst du es hier entsprechend setzen.
-               Für einfache Positionierung reichen top und left. */
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(6px);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            top: 20%;
+            left: 20%;
+            background: rgba(255, 255, 255, 0.6);    /* etwas transparenter */
+            backdrop-filter: blur(4px);              /* weniger Unschärfe */
+            padding: 0.4rem 1.2rem;                  /* kleinerer Innenabstand */
+            border-radius: 30px;                     /* abgerundeter, aber kleiner */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.2rem;                       /* kleinere Schrift */
             font-weight: 600;
             color: #13323f;
             white-space: nowrap;
             z-index: 10;
-            /* Damit es über dem Bild liegt */;
+            letter-spacing: 0.3px;                   /* etwas Laufweite für Eleganz */
         }
 
         /* ---------- SEITE "ÜBER MICH" ---------- */

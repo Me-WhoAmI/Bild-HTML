@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bioingenieurwesen – Profil</title>
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .card {
+            max-width: 900px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2.5rem;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 20px 40px rgba(0, 20, 30, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        /* Kopfbereich */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid #eef2f7;
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .name-title h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #1a2b3c;
+            letter-spacing: -0.5px;
+        }
+
+        .name-title h1 span {
+            font-weight: 300;
+            color: #4a6a85;
+        }
+
+        .name-title .sub {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3a5a7a;
+            margin-top: 0.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .badge {
+            background: #1a2b3c;
+            color: #fff;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        /* Hauptteil */
+        .main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .intro {
+            background: #f8faff;
+            padding: 1.6rem 2rem;
+            border-radius: 1.8rem;
+            border-left: 6px solid #2a7a9c;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #1a2b3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro h2 em {
+            font-style: normal;
+            color: #2a7a9c;
+            font-weight: 600;
+        }
+
+        .intro p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2d4055;
+            max-width: 80%;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #1a2b3c;
+            color: #fff;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn i {
+            font-size: 0.9rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1a2b3c;
+            border: 2px solid #1a2b3c;
+        }
+
+        .btn-outline:hover {
+            background: #1a2b3c;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background: #2a4a6a;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline:hover {
+            background: #1a2b3c;
+        }
+
+        /* Kompetenzen – Grid */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.4rem;
+        }
+
+        .skill-item {
+            background: #f8faff;
+            padding: 1.2rem 0.8rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+            border: 1px solid #eef2f7;
+        }
+
+        .skill-item:hover {
+            box-shadow: 0 6px 14px rgba(0, 30, 50, 0.08);
+        }
+
+        .skill-item i {
+            font-size: 2rem;
+            color: #2a7a9c;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .skill-item strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a2b3c;
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-item span {
+            font-size: 0.85rem;
+            color: #4a5f75;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .name-title h1 {
+                font-size: 2rem;
+            }
+
+            .intro p {
+                max-width: 100%;
+            }
+
+            .intro {
+                padding: 1.2rem;
+            }
+
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- Kopf -->
+    <div class="header">
+        <div class="name-title">
+            <h1>Ihre Name <span>•</span></h1>
+            <div class="sub">Bioingenieurwesen</div>
+        </div>
+        <div class="badge">
+            <i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i> MASTER OF SCIENCE
+        </div>
+    </div>
+
+    <!-- Hauptinhalt -->
+    <div class="main">
+
+        <!-- Intro -->
+        <div class="intro">
+            <h2><em>Bioingenieurwesen</em> verstehen. Technologien entwickeln. Zukunft gestalten.</h2>
+            <p>
+                Masterabsolventin im Bioingenieurwesen mit Leidenschaft für biotechnologische Prozesse,
+                nachhaltige Technologien und interdisziplinäre Lösungen an der Schnittstelle von Biologie
+                und Ingenieurwissenschaften.
+            </p>
+            <div class="actions">
+                <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Lebenslauf herunterladen</a>
+            </div>
+        </div>
+
+        <!-- Kompetenzen -->
+        <div class="skills">
+            <div class="skill-item">
+                <i class="fas fa-flask"></i>
+                <strong>Biotechnologie</strong>
+                <span>Verständnis biologischer Systeme und Prozesse</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-microscope"></i>
+                <strong>Prozessentwicklung</strong>
+                <span>Design und Optimierung biotechnologischer Prozesse</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-chart-bar"></i>
+                <strong>Datenanalyse</strong>
+                <span>Datentriebene Analysen und Modellierung</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-vial"></i>
+                <strong>Forschung</strong>
+                <span>Experimentelle Methoden und wissenschaftliche Arbeit</span>
+            </div>
+            <div class="skill-item">
+                <i class="fas fa-leaf"></i>
+                <strong>Nachhaltigkeit</strong>
+                <span>Technologien für eine nachhaltige Zukunft</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

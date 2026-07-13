@@ -11,33 +11,25 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            background: #f2f7fc; /* Hintergrundfarbe für die Ränder */
+        body {
+            min-height: 100vh;
+            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* fixed entfernt für bessere mobile Performance */
         }
 
-        .fullscreen-image {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .fullscreen-image img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain; /* Bild wird komplett angezeigt, ggf. mit Rändern */
+        /* Für sehr schmale Smartphones (z. B. 390px Breite) */
+        @media (max-width: 480px) {
+            body {
+                background-position: top center; /* wichtigste Inhalte oben – passe es an */
+                /* Alternativen: center center, bottom center */
+            }
         }
     </style>
 </head>
-<body>
-    <div class="fullscreen-image">
-        <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Bioingenieurwesen" />
-    </div>
-</body>
+<body></body>
 </html>
 
 

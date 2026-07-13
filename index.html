@@ -3,34 +3,47 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen</title>
+    <title>Bild-Test</title>
     <style>
+        /* ---------- RESET ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            min-height: 100vh;
-            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: scroll; /* fixed entfernt für bessere mobile Performance */
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* verhindert Scrollen */
+            background: #f2f7fc; /* Fallback-Farbe, falls Bild nicht lädt */
         }
 
-        /* Für sehr schmale Smartphones (z. B. 390px Breite) */
-        @media (max-width: 480px) {
-            body {
-                background-position: top center; /* wichtigste Inhalte oben – passe es an */
-                /* Alternativen: center center, bottom center */
-            }
+        /* ---------- BILD-CONTAINER ---------- */
+        .fullscreen-image {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   /* Bild füllt den Container immer randfüllend */
+            display: block;
         }
     </style>
 </head>
-<body></body>
+<body>
+    <div class="fullscreen-image">
+        <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Testbild" />
+    </div>
+</body>
 </html>
+
+
 
 
 

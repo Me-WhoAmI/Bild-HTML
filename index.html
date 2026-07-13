@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen – Profil</title>
-    <!-- Font Awesome für Icons -->
+    <title>Bioingenieurwesen – Startseite</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
     <style>
+        /* ---------- RESET & BASIS ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -15,97 +16,242 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+            background: #e6f0f5;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem;
+            overflow-x: hidden;
         }
 
-        .card {
-            max-width: 900px;
+        /* ---------- HINTERGRUND (fixed, volle Fläche) ---------- */
+        #bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            background: radial-gradient(circle at 20% 30%, #ffffff 0%, #d4e9f5 45%, #9fc8db 85%, #6a9eb5 100%);
+            overflow: hidden;
+            perspective: 1200px;
+        }
+
+        /* ----- BOKEH-KREISE (pulsierend) ----- */
+        .bokeh {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(55px);
+            opacity: 0.35;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+        .bokeh:nth-child(1) {
+            width: 320px;
+            height: 320px;
+            background: rgba(180, 220, 245, 0.5);
+            top: 5%;
+            left: 2%;
+            animation-delay: 0s;
+        }
+        .bokeh:nth-child(2) {
+            width: 480px;
+            height: 480px;
+            background: rgba(150, 210, 230, 0.3);
+            bottom: 0%;
+            right: 0%;
+            animation-delay: 1.5s;
+        }
+        .bokeh:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            background: rgba(200, 235, 250, 0.6);
+            top: 40%;
+            left: 60%;
+            animation-delay: 3s;
+        }
+        .bokeh:nth-child(4) {
+            width: 400px;
+            height: 400px;
+            background: rgba(100, 180, 210, 0.2);
+            bottom: 10%;
+            left: -5%;
+            animation-delay: 5s;
+        }
+        .bokeh:nth-child(5) {
+            width: 250px;
+            height: 250px;
+            background: rgba(220, 245, 255, 0.5);
+            top: 10%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.25;
+            }
+            100% {
+                transform: scale(1.25);
+                opacity: 0.5;
+            }
+        }
+
+        /* ----- DNA-HELIX (rotiert langsam im 3D-Raum) ----- */
+        #dna-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(10deg);
+            width: 700px;
+            height: 700px;
+            margin-top: -20px;
+            animation: rotateDNA 70s linear infinite;
+            transform-style: preserve-3d;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        @keyframes rotateDNA {
+            0% {
+                transform: translate(-50%, -50%) rotateX(8deg) rotateY(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotateX(8deg) rotateY(360deg);
+            }
+        }
+
+        /* ----- BIOREAKTOR + SKIZZEN (schweben & atmen) ----- */
+        #tech-container {
+            position: absolute;
+            bottom: 5%;
+            right: 3%;
+            width: 380px;
+            height: 420px;
+            opacity: 0.5;
+            animation: floatTech 12s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes floatTech {
+            0% {
+                transform: translateY(0px) rotate(-1deg);
+            }
+            100% {
+                transform: translateY(-22px) rotate(1.5deg);
+            }
+        }
+
+        #tech-container svg {
             width: 100%;
-            background: #ffffff;
-            border-radius: 2.5rem;
-            padding: 2.5rem 2.8rem;
-            box-shadow: 0 20px 40px rgba(0, 20, 30, 0.15);
+            height: 100%;
+            filter: drop-shadow(0 4px 12px rgba(0, 40, 60, 0.08));
+        }
+
+        /* Zeichen-Animation für die Skizzen */
+        .draw-line {
+            fill: none;
+            stroke: #1a4b5e;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-dasharray: 600;
+            stroke-dashoffset: 600;
+            animation: drawLine 6s ease-in-out infinite alternate;
+        }
+        .draw-line-fast {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: drawLine 3.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes drawLine {
+            0% {
+                stroke-dashoffset: 600;
+                opacity: 0.2;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 1;
+            }
+        }
+
+        /* ----- VORDERGRUND (Content) ----- */
+        #content {
+            position: relative;
+            z-index: 10;
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 3rem;
+            padding: 2.8rem 3.2rem;
+            box-shadow: 0 20px 60px rgba(20, 60, 90, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             transition: all 0.2s ease;
         }
 
-        /* Kopfbereich */
+        /* Kopf */
         .header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
-            border-bottom: 2px solid #eef2f7;
+            border-bottom: 2px solid rgba(0, 40, 60, 0.08);
             padding-bottom: 1.2rem;
             margin-bottom: 1.8rem;
         }
 
-        .name-title h1 {
-            font-size: 2.4rem;
+        .title-group h1 {
+            font-size: 2.6rem;
             font-weight: 600;
-            color: #1a2b3c;
+            color: #13323f;
             letter-spacing: -0.5px;
         }
-
-        .name-title h1 span {
-            font-weight: 300;
-            color: #4a6a85;
-        }
-
-        .name-title .sub {
+        .title-group .sub {
             font-size: 1rem;
             font-weight: 500;
-            color: #3a5a7a;
-            margin-top: 0.2rem;
-            letter-spacing: 0.3px;
+            color: #2b5a72;
+            margin-top: 0.15rem;
+            letter-spacing: 0.4px;
         }
 
         .badge {
-            background: #1a2b3c;
+            background: #13323f;
             color: #fff;
-            padding: 0.5rem 1.2rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 40px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
-        /* Hauptteil */
-        .main {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
-
+        /* Intro */
         .intro {
-            background: #f8faff;
+            background: rgba(255, 255, 255, 0.5);
             padding: 1.6rem 2rem;
             border-radius: 1.8rem;
             border-left: 6px solid #2a7a9c;
+            margin-bottom: 1.8rem;
         }
-
         .intro h2 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 500;
-            color: #1a2b3c;
-            margin-bottom: 0.5rem;
+            color: #13323f;
+            margin-bottom: 0.4rem;
         }
-
         .intro h2 em {
             font-style: normal;
-            color: #2a7a9c;
+            color: #1f6a8a;
             font-weight: 600;
         }
-
         .intro p {
             font-size: 1.05rem;
             line-height: 1.6;
-            color: #2d4055;
+            color: #204b60;
             max-width: 80%;
         }
 
@@ -113,170 +259,304 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin-top: 0.5rem;
+            margin-top: 0.8rem;
         }
-
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            background: #1a2b3c;
+            background: #13323f;
             color: #fff;
-            padding: 0.7rem 1.8rem;
+            padding: 0.7rem 2rem;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
-            transition: background 0.2s, transform 0.1s;
+            transition: background 0.2s, transform 0.15s;
             border: none;
             cursor: pointer;
         }
-
         .btn i {
             font-size: 0.9rem;
         }
-
         .btn-outline {
             background: transparent;
-            color: #1a2b3c;
-            border: 2px solid #1a2b3c;
+            color: #13323f;
+            border: 2px solid #13323f;
         }
-
+        .btn:hover {
+            background: #1f5570;
+            transform: translateY(-3px);
+        }
         .btn-outline:hover {
-            background: #1a2b3c;
+            background: #13323f;
             color: #fff;
         }
 
-        .btn:hover {
-            background: #2a4a6a;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline:hover {
-            background: #1a2b3c;
-        }
-
-        /* Kompetenzen – Grid */
+        /* Kompetenzen Grid */
         .skills {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1.2rem;
-            margin-top: 0.4rem;
+            margin-top: 0.8rem;
         }
-
         .skill-item {
-            background: #f8faff;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(2px);
             padding: 1.2rem 0.8rem;
             border-radius: 1.5rem;
             text-align: center;
-            transition: box-shadow 0.2s;
-            border: 1px solid #eef2f7;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: box-shadow 0.25s, transform 0.2s;
         }
-
         .skill-item:hover {
-            box-shadow: 0 6px 14px rgba(0, 30, 50, 0.08);
+            box-shadow: 0 8px 20px rgba(20, 60, 90, 0.08);
+            transform: translateY(-4px);
         }
-
         .skill-item i {
-            font-size: 2rem;
-            color: #2a7a9c;
+            font-size: 2.2rem;
+            color: #1f6a8a;
             margin-bottom: 0.5rem;
             display: block;
         }
-
         .skill-item strong {
             display: block;
             font-size: 1rem;
             font-weight: 600;
-            color: #1a2b3c;
+            color: #13323f;
             margin-bottom: 0.25rem;
         }
-
         .skill-item span {
             font-size: 0.85rem;
-            color: #4a5f75;
+            color: #2b5a72;
             line-height: 1.4;
         }
 
         /* Responsive */
-        @media (max-width: 700px) {
-            .card {
-                padding: 1.8rem 1.2rem;
+        @media (max-width: 800px) {
+            #content {
+                padding: 1.8rem 1.5rem;
+                border-radius: 2rem;
             }
-
             .header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.8rem;
+                gap: 0.6rem;
             }
-
-            .name-title h1 {
-                font-size: 2rem;
+            .title-group h1 {
+                font-size: 2.2rem;
             }
-
             .intro p {
                 max-width: 100%;
             }
-
-            .intro {
-                padding: 1.2rem;
+            #dna-container {
+                width: 400px;
+                height: 400px;
+                opacity: 0.15;
             }
-
-            .skills {
-                grid-template-columns: 1fr 1fr;
+            #tech-container {
+                width: 220px;
+                height: 260px;
+                bottom: 2%;
+                right: 1%;
+                opacity: 0.35;
             }
         }
 
-        @media (max-width: 450px) {
+        @media (max-width: 500px) {
             .skills {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
-
             .actions {
                 flex-direction: column;
                 width: 100%;
             }
-
             .btn {
                 justify-content: center;
                 width: 100%;
             }
+            #content {
+                padding: 1.2rem 1rem;
+            }
+            .intro {
+                padding: 1rem;
+            }
+            .intro h2 {
+                font-size: 1.4rem;
+            }
+            #dna-container {
+                width: 260px;
+                height: 260px;
+                opacity: 0.1;
+            }
+            #tech-container {
+                width: 150px;
+                height: 180px;
+                opacity: 0.25;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="card">
+    <!-- ============================================================ -->
+    <!-- HINTERGRUND-LAYER (fixed)                                      -->
+    <!-- ============================================================ -->
+    <div id="bg-layer">
 
-    <!-- Kopf -->
-    <div class="header">
-        <div class="name-title">
-            <h1>Ihre Name <span>•</span></h1>
-            <div class="sub">Bioingenieurwesen</div>
+        <!-- Bokeh-Kreise -->
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+        <div class="bokeh"></div>
+
+        <!-- DNA-HELIX (zentral, 3D-rotierend) -->
+        <div id="dna-container">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hintergrund-Spirale 1 -->
+                <path d="M 80 30 C 140 100, 40 170, 80 240 C 120 310, 40 370, 80 400"
+                stroke="#2a7a9c" stroke-width="6" fill="none" opacity="0.6" />
+                <path d="M 320 30 C 260 100, 360 170, 320 240 C 280 310, 360 370, 320 400"
+                stroke="#1f6a8a" stroke-width="6" fill="none" opacity="0.6" />
+
+                <!-- Querverbindungen (Basenpaare) -->
+                <g stroke="#4a9abb" stroke-width="2.5" opacity="0.5">
+                    <line x1="88" y1="50" x2="312" y2="50" />
+                    <line x1="72" y1="90" x2="328" y2="90" />
+                    <line x1="64" y1="130" x2="336" y2="130" />
+                    <line x1="60" y1="170" x2="340" y2="170" />
+                    <line x1="64" y1="210" x2="336" y2="210" />
+                    <line x1="72" y1="250" x2="328" y2="250" />
+                    <line x1="88" y1="290" x2="312" y2="290" />
+                    <line x1="110" y1="330" x2="290" y2="330" />
+                    <line x1="140" y1="370" x2="260" y2="370" />
+                </g>
+
+                <!-- Spirale 1 (vorderer Strang) -->
+                <path d="M 80 30 C 140 100, 40 170, 80 240 C 120 310, 40 370, 80 400"
+                stroke="#d4edf7" stroke-width="10" fill="none" opacity="0.5" />
+                <!-- Spirale 2 (hinterer Strang) -->
+                <path d="M 320 30 C 260 100, 360 170, 320 240 C 280 310, 360 370, 320 400"
+                stroke="#b3dae8" stroke-width="10" fill="none" opacity="0.5" />
+            </svg>
         </div>
-        <div class="badge">
-            <i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i> MASTER OF SCIENCE
+
+        <!-- BIOREAKTOR + TECHNISCHE SKIZZEN (rechts unten) -->
+        <div id="tech-container">
+            <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- 1. Bioreaktor (Edelstahl-Zylinder mit Kuppel) -->
+                <defs>
+                    <linearGradient id="steel" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#a0bccd" />
+                        <stop offset="25%" stop-color="#e2edf5" />
+                        <stop offset="50%" stop-color="#c5dae8" />
+                        <stop offset="85%" stop-color="#eef6fc" />
+                        <stop offset="100%" stop-color="#8aabbf" />
+                    </linearGradient>
+                    <linearGradient id="steelDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#5f7e92" />
+                        <stop offset="100%" stop-color="#2e4b5c" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Hauptzylinder -->
+                <rect x="130" y="140" width="140" height="200" rx="8" fill="url(#steel)" stroke="#4a6a7e" stroke-width="1.5" />
+                <!-- Deckel (halbierte Ellipse) -->
+                <ellipse cx="200" cy="140" rx="70" ry="28" fill="url(#steel)" stroke="#4a6a7e" stroke-width="1.5" />
+                <!-- Standfüße -->
+                <rect x="140" y="340" width="18" height="30" rx="4" fill="url(#steelDark)" />
+                <rect x="242" y="340" width="18" height="30" rx="4" fill="url(#steelDark)" />
+
+                <!-- Sichtfenster (Bullauge) -->
+                <circle cx="200" cy="220" r="38" fill="rgba(200, 240, 255, 0.35)" stroke="#b0cdde" stroke-width="3" />
+                <circle cx="200" cy="220" r="26" fill="rgba(180, 230, 255, 0.2)" stroke="#9bbfd4" stroke-width="1.5" stroke-dasharray="4 4" />
+
+                <!-- Rührwerk (oben) -->
+                <line x1="200" y1="112" x2="200" y2="168" stroke="#4a6a7e" stroke-width="4" />
+                <rect x="178" y="100" width="44" height="12" rx="4" fill="url(#steelDark)" />
+                <!-- Rührblätter -->
+                <path d="M 170 155 L 190 165 L 210 165 L 230 155" stroke="#5f7e92" stroke-width="3" fill="none" />
+                <path d="M 170 175 L 190 185 L 210 185 L 230 175" stroke="#5f7e92" stroke-width="3" fill="none" />
+
+                <!-- Rohrleitungen -->
+                <path d="M 270 170 L 310 170 L 310 240 L 280 240" stroke="#8aabbf" stroke-width="5" fill="none" stroke-linejoin="round" />
+                <circle cx="285" cy="240" r="6" fill="#4a6a7e" />
+                <path d="M 130 270 L 90 270 L 90 200 L 110 200" stroke="#8aabbf" stroke-width="5" fill="none" stroke-linejoin="round" />
+                <circle cx="105" cy="200" r="6" fill="#4a6a7e" />
+
+                <!-- 2. Technische Skizzen (transparente Linienzüge) -->
+
+                <!-- Prozessdiagramm (Kreislauf) -->
+                <g opacity="0.45">
+                    <path d="M 30 380 L 60 380 L 60 320 L 100 320 L 100 380 L 130 380"
+                    class="draw-line" stroke="#1a4b5e" stroke-width="2.5" />
+                    <circle cx="45" cy="350" r="4" fill="#1f6a8a" class="draw-line-fast" />
+                    <circle cx="80" cy="350" r="4" fill="#1f6a8a" class="draw-line-fast" style="animation-delay: 1s;" />
+                    <circle cx="115" cy="350" r="4" fill="#1f6a8a" class="draw-line-fast" style="animation-delay: 2s;" />
+                    <path d="M 20 400 L 140 400" stroke="#2b5a72" stroke-width="1.5" stroke-dasharray="6 6" class="draw-line-fast" />
+                </g>
+
+                <!-- Messkurve / Datenvisualisierung -->
+                <g opacity="0.5">
+                    <polyline points="20,60 45,40 70,55 95,20 120,45 145,30 170,50"
+                    class="draw-line" stroke="#2a7a9c" stroke-width="2.5" />
+                    <circle cx="45" cy="40" r="3" fill="#2a7a9c" class="draw-line-fast" style="animation-delay: 0.5s;" />
+                    <circle cx="95" cy="20" r="3" fill="#2a7a9c" class="draw-line-fast" style="animation-delay: 1.5s;" />
+                    <circle cx="145" cy="30" r="3" fill="#2a7a9c" class="draw-line-fast" style="animation-delay: 2.5s;" />
+                    <!-- Rasterpunkte -->
+                    <circle cx="20" cy="80" r="2" fill="#1a4b5e" opacity="0.3" />
+                    <circle cx="70" cy="80" r="2" fill="#1a4b5e" opacity="0.3" />
+                    <circle cx="120" cy="80" r="2" fill="#1a4b5e" opacity="0.3" />
+                    <circle cx="170" cy="80" r="2" fill="#1a4b5e" opacity="0.3" />
+                </g>
+
+                <!-- Gitter / Raster (dezente Ingenieur-Elemente) -->
+                <g opacity="0.15" stroke="#13323f" stroke-width="1">
+                    <line x1="310" y1="380" x2="390" y2="380" />
+                    <line x1="310" y1="395" x2="390" y2="395" />
+                    <line x1="310" y1="410" x2="390" y2="410" />
+                    <line x1="330" y1="370" x2="330" y2="430" />
+                    <line x1="350" y1="370" x2="350" y2="430" />
+                    <line x1="370" y1="370" x2="370" y2="430" />
+                </g>
+            </svg>
         </div>
     </div>
 
-    <!-- Hauptinhalt -->
-    <div class="main">
+    <!-- ============================================================ -->
+    <!-- VORDERGRUND (Content)                                          -->
+    <!-- ============================================================ -->
+    <main id="content">
 
-        <!-- Intro -->
-        <div class="intro">
-            <h2><em>Bioingenieurwesen</em> verstehen. Technologien entwickeln. Zukunft gestalten.</h2>
-            <p>
-                Masterabsolventin im Bioingenieurwesen mit Leidenschaft für biotechnologische Prozesse,
-                nachhaltige Technologien und interdisziplinäre Lösungen an der Schnittstelle von Biologie
-                und Ingenieurwissenschaften.
-            </p>
-            <div class="actions">
-                <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
-                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Lebenslauf herunterladen</a>
+        <!-- Kopf -->
+        <div class="header">
+            <div class="title-group">
+                <h1>Bioingenieurwesen</h1>
+                <div class="sub">verstehen. Technologien entwickeln. Zukunft gestalten.</div>
+            </div>
+            <div class="badge">
+                <i class="fas fa-graduation-cap" style="margin-right: 0.4rem;"></i> MASTER OF SCIENCE
             </div>
         </div>
 
-        <!-- Kompetenzen -->
+        <!-- Intro & Handlungen -->
+        <div class="intro">
+            <h2><em>Bioingenieurwesen</em> – Schnittstelle von Biologie und Ingenieurwissenschaften</h2>
+            <p>
+                Der Masterstudiengang verbindet biologische Forschung mit ingenieurwissenschaftlicher
+                Prozessentwicklung und moderner Datenanalyse. Im Fokus stehen biotechnologische Prozesse,
+                nachhaltige Technologien und interdisziplinäre Lösungen für die Zukunft.
+            </p>
+            <div class="actions">
+                <a href="#" class="btn"><i class="fas fa-arrow-right"></i> Projekte entdecken</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Studieninfo herunterladen</a>
+            </div>
+        </div>
+
+        <!-- Kompetenzfelder -->
         <div class="skills">
             <div class="skill-item">
                 <i class="fas fa-flask"></i>
@@ -286,17 +566,17 @@
             <div class="skill-item">
                 <i class="fas fa-microscope"></i>
                 <strong>Prozessentwicklung</strong>
-                <span>Design und Optimierung biotechnologischer Prozesse</span>
+                <span>Design &amp; Optimierung biotechnologischer Prozesse</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-chart-bar"></i>
                 <strong>Datenanalyse</strong>
-                <span>Datentriebene Analysen und Modellierung</span>
+                <span>Datentriebene Analysen &amp; Modellierung</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-vial"></i>
                 <strong>Forschung</strong>
-                <span>Experimentelle Methoden und wissenschaftliche Arbeit</span>
+                <span>Experimentelle Methoden &amp; wissenschaftliche Arbeit</span>
             </div>
             <div class="skill-item">
                 <i class="fas fa-leaf"></i>
@@ -305,8 +585,7 @@
             </div>
         </div>
 
-    </div>
-</div>
+    </main>
 
 </body>
 </html>

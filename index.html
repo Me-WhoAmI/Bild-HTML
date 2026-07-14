@@ -177,6 +177,10 @@
         object-fit: fill;
         object-position: top center;
         display: block;
+        min-width: 0;              /* ← min-width zurücksetzen */
+        min-height: 0;
+           position: static;          /* ← absolut aufheben */
+        transform: none;
     }
 
 

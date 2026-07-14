@@ -160,21 +160,24 @@
     #start {
         display: flex;
         justify-content: center;
-        align-items: flex-start;    /* ← Bild oben ausrichten */
-        width: 100vh;
-        height: auto;
+        align-items: flex-start;
+        width: 100vw;
+        height: auto;           /* ← Container passt sich dem Bild an */
+        min-height: 100vh;      /* ← mindestens so hoch wie der Bildschirm */
         overflow: hidden;
     }
 
     #start img {
         max-width: 100%;
-        max-height: 100%;
+        max-height: 100vh;      /* ← Bild nicht höher als der Bildschirm */
         width: auto;
-        height: 100vh;
+        height: auto;
         object-fit: contain;
-        object-position: top center;  /* ← zusätzlich oben im Container */
+        object-position: top center;
         display: block;
     }
+
+
 
     /* Overlays ... (wie gehabt) */
     .menu-overlay {

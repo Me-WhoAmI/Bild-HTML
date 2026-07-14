@@ -150,10 +150,12 @@
 
         @media (max-width: 768px) {
             /* ---- Startseite: Bild anders skalieren ---- */
-            #start {
-                background-size: contain;  /* oder cover – je nach Wunsch */
-                background-position: top center;
-            }
+            @media (max-width: 768px) {
+    #start {
+        background-size: cover;
+        background-position: top center;   /* Bild von oben ausrichten → unterer Rand fällt weg */
+    }
+      
 
             /* ---- Overlay "Über mich" verkleinern & verschieben ---- */
             .menu-overlay {

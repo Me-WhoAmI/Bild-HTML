@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bioingenieurwesen – Startseite</title>
+    <title>Bioingenieurwesen – Desktop</title>
     <style>
         * {
             margin: 0;
@@ -14,9 +14,10 @@
         html, body {
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
-        /* ---------- STARTSEITE (Bild als Vollbild) ---------- */
+        /* ---------- STARTSEITE (Vollbild) ---------- */
         #start {
             position: relative;
             width: 100vw;
@@ -24,20 +25,21 @@
             overflow: hidden;
         }
 
+        /* Bild – randfüllend, ohne weiße Ränder */
         #start img {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-               min-width: 100%;
+            min-width: 100%;
             min-height: 100%;
-      object-fit: cover; /* optional, aber sicherheitshalber */
             width: auto;
             height: auto;
+            object-fit: cover;
             display: block;
         }
 
-        /* ---------- OVERLAYS (bleiben über dem Bild) ---------- */
+        /* ---------- OVERLAYS ---------- */
         .menu-overlay {
             position: absolute;
             top: 6%;
@@ -88,7 +90,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (unverändert) ---------- */
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -153,93 +155,12 @@
             line-height: 1.6;
             margin: 0 auto;
         }
-
-        /* ========== SMARTPHONE-OPTIMIERUNGEN ========== */
-        
-        @media (max-width: 768px) {
-    /* Container */
-    #start {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100vw;
-        height: auto;           /* ← Container passt sich dem Bild an */
-       min-height: 40vh; /* ← damit kann man den Container verkleinern oder vergrößern! */
-        overflow: hidden;
-    }
-            
-    /* Bild */
-    #start img {
-        max-width: 50%;
-        max-height: 120vh;  /* ← Bild nicht höher als der Bildschirm */
-        width: auto;
-        height: auto;
-        object-fit: fill;
-        object-position: top center;
-        display: block;  
-    }
-
-
-
-    /* Overlays ... (wie gehabt) */
-    .menu-overlay {
-        top: 4%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 0.4rem 1.2rem;
-    }
-
-    .menu-overlay a {
-        font-size: 0.85rem;
-    }
-
-    .name-overlay {
-        top: 85%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1rem;
-        padding: 0.3rem 1rem;
-    }
-
-    #ueber-mich h2 {
-        font-size: 2.5rem;
-    }
-
-    #ueber-mich p {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-}
-
- 
-
-
-        
-
-
-
-
-        @media (max-width: 480px) {
-            .menu-overlay a {
-                font-size: 0.75rem;
-            }
-
-            .name-overlay {
-                font-size: 0.85rem;
-                padding: 0.2rem 0.8rem;
-                top: 82%;
-            }
-
-            #ueber-mich h2 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
 
     <section id="start">
-        <!-- Bild mit absoluter Positionierung – füllt immer den Container -->
+        <!-- Bild -->
         <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Bioingenieurwesen" />
 
         <!-- Overlays -->

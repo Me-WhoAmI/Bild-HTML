@@ -155,6 +155,61 @@
         }
 
         /* ========== SMARTPHONE-OPTIMIERUNGEN ========== */
+        
+        @media (max-width: 768px) {
+    /* Container */
+    #start {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100vw;
+        height: auto;           /* ← Container passt sich dem Bild an */
+       min-height: 40vh; /* ← damit kann man den Container verkleinern oder vergrößern! */
+        overflow: hidden;
+    }
+            
+    /* Bild */
+    #start img {
+        max-width: 50%;
+        max-height: 120vh;  /* ← Bild nicht höher als der Bildschirm */
+        width: auto;
+        height: auto;
+        object-fit: fill;
+        object-position: top center;
+        display: block;  
+    }
+
+
+
+    /* Overlays ... (wie gehabt) */
+    .menu-overlay {
+        top: 4%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.4rem 1.2rem;
+    }
+
+    .menu-overlay a {
+        font-size: 0.85rem;
+    }
+
+    .name-overlay {
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        padding: 0.3rem 1rem;
+    }
+
+    #ueber-mich h2 {
+        font-size: 2.5rem;
+    }
+
+    #ueber-mich p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
 
  
 

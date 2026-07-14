@@ -16,7 +16,7 @@
             height: 100%;
         }
 
-        /* ---------- STARTSEITE ---------- */
+        /* ---------- STARTSEITE (Desktop-Standard) ---------- */
         #start {
             position: relative;
             width: 100vw;
@@ -32,7 +32,7 @@
             position: absolute;
             top: 6%;
             left: 31%;
-            transform: translate(-50%, -50%);            
+            transform: translate(-50%, -50%);
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             padding: 0.6rem 1.8rem;
@@ -58,29 +58,27 @@
             color: #1f6a8a;
         }
 
-        /* ---------- NEU: OVERLAY FÜR DEN NAMEN "Katarina Opara" ---------- */
-     
-
+        /* ---------- OVERLAY FÜR DEN NAMEN (Desktop) ---------- */
         .name-overlay {
             position: absolute;
-            top:2%;
+            top: 2%;
             left: 4%;
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(4px);              /* weniger Unschärfe */
-            padding: 0.4rem 1.2rem;                  /* kleinerer Innenabstand */
-            border-radius: 30px;                     /* abgerundeter, aber kleiner */
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.2);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.2rem;                       /* kleinere Schrift */
+            font-size: 1.2rem;
             font-weight: 600;
             color: #13323f;
             white-space: nowrap;
             z-index: 10;
-            letter-spacing: 0.3px;                   /* etwas Laufweite für Eleganz */
+            letter-spacing: 0.3px;
         }
 
-        /* ---------- SEITE "ÜBER MICH" ---------- */
+        /* ---------- SEITE "ÜBER MICH" (unverändert) ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -145,17 +143,75 @@
             line-height: 1.6;
             margin: 0 auto;
         }
+
+        /* ============================================================ */
+        /* ========== MEDIA QUERIES FÜR SMARTPHONES ========== */
+        /* ============================================================ */
+
+        @media (max-width: 768px) {
+            /* ---- Startseite: Bild anders skalieren ---- */
+            #start {
+                background-size: contain;  /* oder cover – je nach Wunsch */
+                background-position: top center;
+            }
+
+            /* ---- Overlay "Über mich" verkleinern & verschieben ---- */
+            .menu-overlay {
+                top: 4%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 0.4rem 1.2rem;
+            }
+
+            .menu-overlay a {
+                font-size: 0.85rem;
+            }
+
+            /* ---- Namen-Overlay verkleinern & verschieben ---- */
+            .name-overlay {
+                top: 85%;           /* weiter nach unten */
+                left: 50%;          /* zentriert */
+                transform: translate(-50%, -50%);
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+                white-space: nowrap;
+            }
+
+            /* ---- "Über mich"-Seite: kleinere Schrift ---- */
+            #ueber-mich h2 {
+                font-size: 2.5rem;
+            }
+
+            #ueber-mich p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
+
+        /* ----- Für sehr kleine Smartphones (< 480px) ----- */
+        @media (max-width: 480px) {
+            .menu-overlay a {
+                font-size: 0.75rem;
+            }
+
+            .name-overlay {
+                font-size: 0.85rem;
+                padding: 0.2rem 0.8rem;
+                top: 82%;
+            }
+
+            #ueber-mich h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
 
     <section id="start">
-        <!-- Overlay für "Über mich" (Link) -->
         <div class="menu-overlay">
             <a href="#ueber-mich">Über mich</a>
         </div>
-
-        <!-- NEU: Overlay für den Namen "Katarina Opara" -->
         <div class="name-overlay">Katarina Opara</div>
     </section>
 

@@ -16,15 +16,20 @@
             height: 100%;
         }
 
-        /* ---------- STARTSEITE (Desktop-Standard) ---------- */
+        /* ---------- STARTSEITE (mit <img>) ---------- */
         #start {
             position: relative;
             width: 100vw;
             height: 100vh;
-            background-image: url('CCEC7E54-6097-4D76-9703-426F9B25DD2A.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        #start img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         /* ---------- OVERLAY FÜR "ÜBER MICH" (Link) ---------- */
@@ -41,6 +46,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
+            z-index: 10;
         }
 
         .menu-overlay a {
@@ -58,7 +64,7 @@
             color: #1f6a8a;
         }
 
-        /* ---------- OVERLAY FÜR DEN NAMEN (Desktop) ---------- */
+        /* ---------- OVERLAY FÜR DEN NAMEN ---------- */
         .name-overlay {
             position: absolute;
             top: 2%;
@@ -78,7 +84,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (unverändert) ---------- */
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -144,55 +150,41 @@
             margin: 0 auto;
         }
 
-        /* ============================================================ */
-        /* ========== MEDIA QUERIES FÜR SMARTPHONES ========== */
-        /* ============================================================ */
-
+        /* ========== SMARTPHONE-OPTIMIERUNGEN ========== */
         @media (max-width: 768px) {
-    /* ---- Startseite: Bild skalieren ---- */
-    #start {
-        background-size: cover;
-        background-position: top center;
-        background-attachment: scroll;   /* optional – aber hilft manchmal */
-    }
+            #start img {
+                object-position: top center;  /* Bild von oben ausrichten */
+            }
 
-    /* ---- Overlay "Über mich" verkleinern & verschieben ---- */
-    .menu-overlay {
-        top: 4%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 0.4rem 1.2rem;
-    }
+            .menu-overlay {
+                top: 4%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 0.4rem 1.2rem;
+            }
 
-    .menu-overlay a {
-        font-size: 0.85rem;
-    }
+            .menu-overlay a {
+                font-size: 0.85rem;
+            }
 
-    /* ---- Namen-Overlay verkleinern & verschieben ---- */
-    .name-overlay {
-        top: 85%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1rem;
-        padding: 0.3rem 1rem;
-        white-space: nowrap;
-    }
+            .name-overlay {
+                top: 85%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+            }
 
-    /* ---- "Über mich"-Seite: kleinere Schrift ---- */
-    #ueber-mich h2 {
-        font-size: 2.5rem;
-    }
+            #ueber-mich h2 {
+                font-size: 2.5rem;
+            }
 
-    #ueber-mich p {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-}
+            #ueber-mich p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
 
-
-
-
-        /* ----- Für sehr kleine Smartphones (< 480px) ----- */
         @media (max-width: 480px) {
             .menu-overlay a {
                 font-size: 0.75rem;
@@ -213,6 +205,10 @@
 <body>
 
     <section id="start">
+        <!-- Bild als <img> – skaliert zuverlässig auf allen Geräten -->
+        <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Bioingenieurwesen" />
+
+        <!-- Overlays -->
         <div class="menu-overlay">
             <a href="#ueber-mich">Über mich</a>
         </div>

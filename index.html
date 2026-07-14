@@ -148,47 +148,49 @@
         /* ========== MEDIA QUERIES FÜR SMARTPHONES ========== */
         /* ============================================================ */
 
-  
-            @media (max-width: 768px) {
+        @media (max-width: 768px) {
+    /* ---- Startseite: Bild skalieren ---- */
     #start {
         background-size: cover;
-        background-position: top center;   /* Bild von oben ausrichten → unterer Rand fällt weg */
-         background-attachment: scroll;   /* ← neu */
+        background-position: top center;
+        background-attachment: scroll;   /* optional – aber hilft manchmal */
     }
-      
 
-            /* ---- Overlay "Über mich" verkleinern & verschieben ---- */
-            .menu-overlay {
-                top: 4%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                padding: 0.4rem 1.2rem;
-            }
+    /* ---- Overlay "Über mich" verkleinern & verschieben ---- */
+    .menu-overlay {
+        top: 4%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.4rem 1.2rem;
+    }
 
-            .menu-overlay a {
-                font-size: 0.85rem;
-            }
+    .menu-overlay a {
+        font-size: 0.85rem;
+    }
 
-            /* ---- Namen-Overlay verkleinern & verschieben ---- */
-            .name-overlay {
-                top: 85%;           /* weiter nach unten */
-                left: 50%;          /* zentriert */
-                transform: translate(-50%, -50%);
-                font-size: 1rem;
-                padding: 0.3rem 1rem;
-                white-space: nowrap;
-            }
+    /* ---- Namen-Overlay verkleinern & verschieben ---- */
+    .name-overlay {
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1rem;
+        padding: 0.3rem 1rem;
+        white-space: nowrap;
+    }
 
-            /* ---- "Über mich"-Seite: kleinere Schrift ---- */
-            #ueber-mich h2 {
-                font-size: 2.5rem;
-            }
+    /* ---- "Über mich"-Seite: kleinere Schrift ---- */
+    #ueber-mich h2 {
+        font-size: 2.5rem;
+    }
 
-            #ueber-mich p {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-        }
+    #ueber-mich p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+
+
 
         /* ----- Für sehr kleine Smartphones (< 480px) ----- */
         @media (max-width: 480px) {

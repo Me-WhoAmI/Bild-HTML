@@ -17,26 +17,29 @@
             overflow: hidden;
         }
 
-        #start {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-                margin: 0 auto;      /* ← Zentriert den Container */
-        }
 
-        #start img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-            display: block;
-        }
+        #start {
+    position: relative;
+    width: 70vw;           /* ← Container verkleinern */
+    height: 100vh;
+    margin: 0 auto;        /* ← zentrieren */
+    overflow: hidden;
+}
+
+#start img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;       /* ← statt min-width */
+    max-height: 100%;      /* ← statt min-height */
+    width: auto;
+    height: auto;
+    object-fit: contain;   /* ← statt cover */
+    display: block;
+}
+
+
     </style>
 </head>
 <body>

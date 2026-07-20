@@ -17,31 +17,26 @@
         }
 
         /* ---------- STARTSEITE (Bild als Vollbild) ---------- */
-#start img {
-    position: absolute;
-    top: 0;
-    /* ← Bild nach oben schieben */
-    left: 50%;
-    transform: translateX(-50%); /* ← nur horizontal zentrieren */
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
+        #start img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
 
         #start {
-    position: relative;
-    width: 100vw;         /* ← Container verkleinern */
-    height: 100vh;
-    margin: 0 auto;        /* ← zentrieren */
-    overflow: hidden;
-}
-
-
-
-
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin: 0 auto;
+            overflow: hidden;
+        }
 
         /* ---------- OVERLAYS (bleiben über dem Bild) ---------- */
         .menu-overlay {
@@ -94,7 +89,58 @@
             letter-spacing: 0.3px;
         }
 
-        /* ---------- SEITE "ÜBER MICH" (unverändert) ---------- */
+        /* ========== FEUERWERK-BUTTON (rechts unten) ========== */
+        #fireworkButton {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10000;
+            
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(20, 20, 40, 0.75);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.25);
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        #fireworkButton svg {
+            width: 45px;
+            height: 45px;
+            display: block;
+        }
+
+        #fireworkButton:hover {
+            transform: scale(1.15);
+            border-color: #FFD700;
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.25), 0 0 60px rgba(255, 215, 0, 0.08);
+            background: rgba(30, 30, 60, 0.85);
+        }
+
+        #fireworkButton:active {
+            transform: scale(0.9);
+        }
+
+        /* ---------- FEUERWERK-CONTAINER ---------- */
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ---------- SEITE "ÜBER MICH" ---------- */
         #ueber-mich {
             min-height: 100vh;
             display: flex;
@@ -161,63 +207,67 @@
         }
 
         /* ========== SMARTPHONE-OPTIMIERUNGEN ========== */
-        
         @media (max-width: 768px) {
-    /* Container */
-    #start {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100vw;
-        height: auto;           /* ← Container passt sich dem Bild an */
-       min-height: 40vh; /* ← damit kann man den Container verkleinern oder vergrößern! */
-        overflow: hidden;
-    }
+            #start {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                width: 100vw;
+                height: auto;
+                min-height: 40vh;
+                overflow: hidden;
+            }
             
-    /* Bild */
-    #start img {
-        max-width: 100%;
-        max-height: 120vh;  /* ← Bild nicht höher als der Bildschirm */
-        width: auto;
-        height: auto;
-        object-fit: fill;
-        object-position: top center;
-        display: block;  
-    }
+            #start img {
+                max-width: 100%;
+                max-height: 120vh;
+                width: auto;
+                height: auto;
+                object-fit: fill;
+                object-position: top center;
+                display: block;
+            }
 
+            .menu-overlay {
+                top: 4%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 0.4rem 1.2rem;
+            }
 
+            .menu-overlay a {
+                font-size: 0.85rem;
+            }
 
-    /* Overlays ... (wie gehabt) */
-    .menu-overlay {
-        top: 4%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 0.4rem 1.2rem;
-    }
+            .name-overlay {
+                top: 85%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1rem;
+                padding: 0.3rem 1rem;
+            }
 
-    .menu-overlay a {
-        font-size: 0.85rem;
-    }
+            #fireworkButton {
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+                right: 20px;
+            }
 
-    .name-overlay {
-        top: 85%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1rem;
-        padding: 0.3rem 1rem;
-    }
+            #fireworkButton svg {
+                width: 38px;
+                height: 38px;
+            }
 
-    #ueber-mich h2 {
-        font-size: 2.5rem;
-    }
+            #ueber-mich h2 {
+                font-size: 2.5rem;
+            }
 
-    #ueber-mich p {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-}
-
- 
+            #ueber-mich p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+        }
 
         @media (max-width: 480px) {
             .menu-overlay a {
@@ -230,6 +280,18 @@
                 top: 82%;
             }
 
+            #fireworkButton {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            #fireworkButton svg {
+                width: 32px;
+                height: 32px;
+            }
+
             #ueber-mich h2 {
                 font-size: 2rem;
             }
@@ -239,7 +301,7 @@
 <body>
 
     <section id="start">
-        <!-- Bild mit absoluter Positionierung – füllt immer den Container -->
+        <!-- Bild -->
         <img src="CCEC7E54-6097-4D76-9703-426F9B25DD2A.png" alt="Bioingenieurwesen" />
 
         <!-- Overlays -->
@@ -255,6 +317,126 @@
             <p>Hier kommt später Dein Text.</p>
         </div>
     </section>
+
+    <!-- ===== FEUERWERK ===== -->
+    <!-- Container für das Feuerwerk -->
+    <div class="fireworks-container"></div>
+
+    <!-- Feuerwerk-Button (rechts unten) mit SVG -->
+    <button id="fireworkButton">
+        <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Äußere, völlig unregelmäßige Explosionsform -->
+            <path d="
+                M100 12 
+                L118 58 L148 25 
+                L145 78 L195 80 
+                L142 118 L188 160 
+                L128 152 L108 195 
+                L92 148 L42 190 
+                L60 128 L15 122 
+                L55 92 L22 48 
+                L82 65 L55 25 
+                L88 55 Z
+            " fill="#FF6D00" opacity="0.35" />
+            
+            <!-- Hauptexplosion -->
+            <path d="
+                M100 20 
+                L120 65 L175 38 
+                L128 92 L185 100 
+                L138 132 L178 182 
+                L122 148 L102 198 
+                L88 152 L38 185 
+                L65 132 L18 128 
+                L58 92 L28 48 
+                L78 75 L52 28 
+                L92 65 Z
+            " fill="#FF9100" stroke="#E65100" stroke-width="2" />
+            
+            <!-- Mittlere Schicht -->
+            <path d="
+                M100 42 
+                L115 78 L155 52 
+                L122 98 L168 105 
+                L128 128 L158 168 
+                L112 145 L98 182 
+                L85 142 L48 172 
+                L72 125 L32 120 
+                L68 98 L42 62 
+                L82 85 L58 45 
+                L92 78 Z
+            " fill="#FFD700" />
+            
+            <!-- Innere Schicht -->
+            <path d="
+                M100 58 
+                L110 88 L132 68 
+                L115 102 L145 110 
+                L118 128 L140 158 
+                L105 138 L92 168 
+                L82 135 L55 155 
+                L75 120 L42 115 
+                L72 100 L52 75 
+                L80 92 L65 60 
+                L92 85 Z
+            " fill="#FFF176" />
+            
+            <!-- Weißer Kern -->
+            <ellipse cx="82" cy="105" rx="20" ry="25" fill="#FFFFFF" opacity="0.85" transform="rotate(-25, 82, 105)" />
+            <ellipse cx="108" cy="88" rx="12" ry="9" fill="#FFFFFF" transform="rotate(20, 108, 88)" />
+            <ellipse cx="90" cy="112" rx="6" ry="8" fill="#FFF8E1" transform="rotate(-15, 90, 112)" />
+            <circle cx="78" cy="92" r="4" fill="#FFFFFF" opacity="0.7" />
+            <circle cx="110" cy="100" r="3" fill="#FFFFFF" opacity="0.5" />
+            
+            <!-- Glut und Splitter -->
+            <circle cx="158" cy="60" r="4" fill="#FF1744" opacity="0.6" />
+            <circle cx="32" cy="148" r="5" fill="#FF6D00" opacity="0.5" />
+            <circle cx="178" cy="130" r="3" fill="#FFD700" opacity="0.4" />
+            <circle cx="18" cy="72" r="3.5" fill="#FF9100" opacity="0.5" />
+            <circle cx="148" cy="188" r="2.5" fill="#FF1744" opacity="0.4" />
+            <circle cx="52" cy="32" r="4" fill="#FF6D00" opacity="0.5" />
+            <circle cx="172" cy="92" r="2.5" fill="#FFD700" opacity="0.3" />
+            <circle cx="28" cy="118" r="3" fill="#FF9100" opacity="0.4" />
+            <circle cx="135" cy="35" r="2.5" fill="#FF1744" opacity="0.4" />
+            <circle cx="68" cy="178" r="3.5" fill="#FF6D00" opacity="0.5" />
+            <circle cx="188" cy="42" r="2" fill="#FFD700" opacity="0.3" />
+            <circle cx="12" cy="168" r="2.5" fill="#FF9100" opacity="0.4" />
+            <circle cx="118" cy="162" r="3" fill="#FF1744" opacity="0.3" />
+            <circle cx="82" cy="22" r="2.5" fill="#FF6D00" opacity="0.4" />
+            <circle cx="165" cy="75" r="2" fill="#FFD700" opacity="0.3" />
+            <circle cx="38" cy="95" r="3" fill="#FF9100" opacity="0.4" />
+        </svg>
+    </button>
+
+    <!-- Feuerwerk-Bibliothek -->
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js">
+    </script>
+
+    <script>
+        // Feuerwerk-Container
+        const container = document.querySelector('.fireworks-container');
+
+        // Feuerwerk-Instanz
+        const fireworks = new Fireworks.default(container, {
+            speed: 2,
+            particles: 130,
+            explosion: 6,
+            hue: { min: 0, max: 360 },
+            brightness: { min: 50, max: 100 },
+            decay: { min: 0.015, max: 0.025 }
+        });
+
+        // Button
+        const button = document.getElementById('fireworkButton');
+
+        // Bei Klick: Feuerwerk für 2,5 Sekunden
+        button.addEventListener('click', () => {
+            fireworks.start();
+            setTimeout(() => {
+                fireworks.stop();
+            }, 2500);
+        });
+    </script>
 
 </body>
 </html>

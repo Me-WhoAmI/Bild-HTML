@@ -34,11 +34,17 @@
         }
 
         .logo {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #13323f;
-            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
         }
 
         nav ul {
@@ -267,6 +273,8 @@
 
             .logo {
                 margin-bottom: 1rem;
+                width: 50px;
+                height: 50px;
             }
 
             nav ul {
@@ -322,7 +330,8 @@
             }
 
             .logo {
-                font-size: 1.2rem;
+                width: 45px;
+                height: 45px;
                 margin-bottom: 0.8rem;
             }
 
@@ -352,7 +361,42 @@
 
     <!-- NAVIGATION BAR -->
     <nav id="navbar">
-        <div class="logo">Katarina Opara</div>
+        <div class="logo">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <clipPath id="clip-left">
+                        <circle cx="70" cy="100" r="50"/>
+                    </clipPath>
+                </defs>
+
+                <!-- LINKER RING (K - vorn) -->
+                <circle cx="70" cy="100" r="50" fill="#F8F9FA" stroke="#2C3E50" stroke-width="3"/>
+                <!-- Farbakzent Kalium (rot) -->
+                <circle cx="70" cy="100" r="50" fill="none" stroke="#E74C3C" stroke-width="5" stroke-dasharray="157,157" stroke-dashoffset="120" opacity="0.8"/>
+                
+                <!-- K Symbol -->
+                <text x="70" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="48" font-weight="700" fill="#2C3E50" text-anchor="middle">K</text>
+                
+                <!-- Ordnungszahl K -->
+                <text x="62" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#7F8C8D" text-anchor="middle">19</text>
+
+                <!-- RECHTER RING (O - hinten, teilweise verdeckt) -->
+                <g clip-path="url(clip-left)">
+                    <circle cx="130" cy="100" r="50" fill="#F8F9FA" stroke="#2C3E50" stroke-width="3"/>
+                    <!-- Farbakzent Sauerstoff (grün) -->
+                    <circle cx="130" cy="100" r="50" fill="none" stroke="#2ECC71" stroke-width="5" stroke-dasharray="157,157" stroke-dashoffset="120" opacity="0.8"/>
+                    
+                    <!-- O Symbol (teilweise sichtbar) -->
+                    <text x="130" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="48" font-weight="700" fill="#2C3E50" text-anchor="middle">O</text>
+                    
+                    <!-- Ordnungszahl O -->
+                    <text x="138" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#7F8C8D" text-anchor="middle">8</text>
+                </g>
+
+                <!-- LINKER RING nochmal (für Vordergrund-Effekt) -->
+                <circle cx="70" cy="100" r="50" fill="none" stroke="#2C3E50" stroke-width="3"/>
+            </svg>
+        </div>
         <ul>
             <li><a href="#start" class="nav-link active">Startseite</a></li>
             <li><a href="#ueber-mich" class="nav-link">Über mich</a></li>
